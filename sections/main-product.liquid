@@ -1,0 +1,475 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign has_mix_and_match = false
+  assign product_type_downcase = product.type | downcase
+
+  if product.metafields.custom.mix_and_match_collection != blank
+    assign has_mix_and_match = true
+  endif
+
+  capture pricing_class
+    if product.has_only_default_variant
+      if product.compare_at_price > product.price
+        echo 'price--on-sale'
+      endif
+    else
+      if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price
+        echo 'price--on-sale'
+      endif
+    endif
+  endcapture
+
+  assign has_vendor_collection = false
+  assign vendor_collection = null
+  assign vendor_handle = product.vendor | handle
+
+  if product.vendor != blank
+    for collection in collections
+      if vendor_handle == collection.handle
+        assign has_vendor_collection = true
+        assign vendor_collection = collection.url
+        break
+      endif
+    endfor
+  endif
+-%}
+
+{% capture section_settings %}{"infinite": {{ section.settings.infinite | json }}, "video_controls": {{ section.settings.video_controls | json }}, "include_pager_dots": {{ section.settings.include_pager_dots | json }}}{% endcapture %}
+{% # prettier-ignore-attribute %}
+<div
+  data-section-id="{{ section.id }}"
+  data-section-type="main-product"
+  data-enable-history-state="true"
+  class="product {% if product_type_downcase == 'gift card' or product_type_downcase == 'gift card virtual' %}product--gift-card{% endif %}"
+  data-first-variant="{{ current_variant.id }}"
+  data-selected-variant="{{ product.selected_or_first_available_variant.id }}"
+  data-section-settings='{{ section_settings }}'
+>
+  {%- if section.settings.include_breadcrumbs == true -%}
+    {% render 'breadcrumbs', vendor_collection: vendor_collection, has_vendor_collection: has_vendor_collection %}
+  {%- endif -%}
+
+  <div class="product__body" data-product-body>
+    <div class="product__media" data-product-media>
+      {% render 'product-badges', product: product %}
+      {%- if product.metafields.details.model_info != blank -%}
+        <div class="product__model-info">
+          {{ product.metafields.details.model_info }}
+        </div>
+      {%- endif -%}
+      <div class="{% if product.media.size > 1 %}product__slideshow{% endif %}">
+        {%- for media in product.media -%}
+          {%- case media.media_type -%}
+            {%- when 'image' -%}
+              {%- liquid
+                assign img_variants = ''
+                for image in product.images
+                  if image.src == media.src
+                    for variant in image.variants
+                      assign img_variants = img_variants | append: variant.id
+                      unless forloop.last
+                        assign img_variants = img_variants | append: ','
+                      endunless
+                    endfor
+                    break
+                  endif
+                endfor
+              -%}
+
+              <div
+                class="product__media-item"
+                data-product-image-wrapper
+                data-image-variants="{{ img_variants }}"
+                data-slide-index="{{ forloop.index0 }}"
+              >
+                {%- render 'component-image',
+                  image: media,
+                  aspect_ratio: 'natural',
+                  max_width: 1120,
+                  sizes: '(min-width: 48rem) 66vw, 77vw'
+                -%}
+              </div>
+
+            {%- when 'video', 'external_video' -%}
+              {%- liquid
+                assign autoplay_setting = false
+                assign controls_setting = true
+
+                if section.settings.video_controls == 'autoplay'
+                  assign controls_setting = false
+
+                  if forloop.first
+                    assign autoplay_setting = true
+                  endif
+                endif
+              -%}
+              <div
+                class="product__media-item"
+                data-product-video-wrapper
+                data-media-type="{{ media.media_type }}"
+                data-slide-index="{{ forloop.index0 }}"
+              >
+                {%- render 'component-video',
+                  video: media,
+                  aspect_ratio: 'natural',
+                  poster_width: 800,
+                  autoplay: autoplay_setting,
+                  controls: controls_setting
+                -%}
+              </div>
+
+            {%- when 'model' -%}
+              <div class="product__media-item" data-zoom-type="model" data-slide-index="{{ forloop.index0 }}">
+                <div class="product__media-responsive" style="padding-top: 100%;">
+                  <button
+                    class="btn model-viewer__button"
+                    data-shopify-xr
+                    data-shopify-model3d-id="{{ media.id }}"
+                    data-shopify-title="{{ product.title | escape }}"
+                    aria-label="{{ 'products.product.model_xr' | t }}"
+                    data-shopify-xr-hidden
+                  >
+                    {% render 'icon-model-xr' %}
+                  </button>
+                  {{ media | model_viewer_tag | replace: 'data-shopify-feature', 'data-version' }}
+                </div>
+              </div>
+
+            {%- else -%}
+              <div class="product__media-item" data-slide-index="{{ forloop.index0 }}">
+                {{ media | media_tag }}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+
+      {%- liquid
+        if section.settings.arrows == true and product.media.size > 1
+          render 'carousel-controls', container_class: 'controls-container--main'
+        endif
+      -%}
+    </div>
+
+    <div class="product__details" data-product-details>
+      <div class="product__details--inner">
+        <div class="product__form">
+          {% render 'product-form',
+            product: product,
+            section_settings: section.settings,
+            current_variant: current_variant,
+            pricing_class: pricing_class,
+            vendor_collection: vendor_collection,
+            has_vendor_collection: has_vendor_collection
+          %}
+        </div>
+
+        {%- if has_mix_and_match or section.settings.enable_store_availability -%}
+          <div class="product__mix-match-availability-wrapper">
+            {%- if has_mix_and_match -%}
+              <button
+                class="btn-none"
+                type="button"
+                data-mix-and-match-modal-trigger
+                data-product-handle="{{ product. handle }}"
+              >
+                <span>Mix & match</span>
+                {% render 'icon-mix-match' %}
+              </button>
+            {%- endif -%}
+
+            {%- if section.settings.enable_store_availability -%}
+              <button class="btn-none" type="button">
+                <span>Store Availability</span>
+                {% render 'icon-pin-location' %}
+              </button>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {% render 'brauz-element' %}
+
+        {%- if product.metafields.details.product_features != blank -%}
+          <div class="product__features {% if product.metafields.details.product_features.value.size > 2 %}more-than-2{% endif %}">
+            {%- for feature in product.metafields.details.product_features.value -%}
+              {%- capture index -%}{%- cycle 'odd', 'even' -%}{%- endcapture -%}
+              <div class="product__feature {% if index == 'even' %}has-divider{% endif %}">
+                {% liquid
+                  case feature
+                    when 'Chlorine resistant'
+                      render 'icon-chlorine-resistant'
+                    when 'Period Swimwear'
+                      render 'icon-period'
+                    when 'Masectomy'
+                      render 'icon-ribbon'
+                    when 'Sustainable'
+                      render 'icon-sustainable'
+                  endcase
+                %}
+
+                <span>{{ feature }}</span>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- liquid
+          render 'product-accordion'
+
+          comment
+            if section.settings.show_share_buttons
+              render 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product
+            endif
+          endcomment
+        -%}
+        {%- if current_variant.sku != blank -%}
+          <div class="product__code">{{ 'products.product.code_label' | t }}: {{ current_variant.sku }}</div>
+        {%- endif -%}
+
+        {% render 'product-ctas' %}
+
+        {% render 'product-complete-the-set' %}
+      </div>
+    </div>
+  </div>
+
+  {% comment %}
+    Currently there are inconsistencies in the format of product data between
+    {{ product | json }} in liquid and fetching from /products/${handle}.js.
+    The below fixes that inconsistency so we don't require a fetch in the
+    main-product.js section.
+  {% endcomment %}
+  <script>
+    window.productJSON = {{ product | json }};
+    window.productJSON.options = {{ product.options_with_values | json }};
+    window.productJSON.url = {{ product.url | json }};
+  </script>
+
+  {%- assign models = product.media | where: 'media_type', 'model' -%}
+  {%- if models.size > 0 -%}
+    <script type="application/json" data-product-models-json>
+      {{ models | json }}
+    </script>
+  {%- endif -%}
+</div>
+
+{% render 'vite-tag' with '@/scripts/sections/main-product.js' %}
+
+{% schema %}
+  {
+    "name": "Main Product",
+    "class": "main-product",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "include_breadcrumbs",
+        "label": "Include breadcrumbs",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_store_availability",
+        "label": "Enable store availability",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Buy now, Pay later"
+      },
+      {
+        "type": "checkbox",
+        "id": "include_afterpay",
+        "label": "Display Afterpay",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "afterpay_label",
+        "label": "Afterpay label",
+        "default": "Or 4 equal payments of [[ amount ]] with",
+        "info": "'[[ amount ]]' will be replaced with the selected variant price divided by 4."
+      },
+      {
+        "type": "header",
+        "content": "Media slider settings",
+        "info": "Only applies to mobile"
+      },
+      {
+        "type": "checkbox",
+        "id": "infinite",
+        "label": "Infinite loop slider",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "arrows",
+        "label": "Show arrows",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "include_pager_dots",
+        "label": "Include pager dots",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "video_controls",
+        "label": "Video controls / autoplay",
+        "info": "Applies to both hosted (mp4) and external (YouTube) videos",
+        "default": "controls",
+        "options": [
+          {
+            "value": "autoplay",
+            "label": "Autoplay"
+          },
+          {
+            "value": "controls",
+            "label": "Controls"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Size Guides"
+      },
+      {
+        "type": "text",
+        "id": "general_size_guide_handle",
+        "label": "General Size Guide metaobject handle",
+        "default": "size-guide-general"
+      },
+      {
+        "type": "text",
+        "id": "general_how_to_measure_handle",
+        "label": "General How To Measure metaobject handle",
+        "default": "how-to-measure-general"
+      },
+      {
+        "type": "text",
+        "id": "general_region_size_guide_handle",
+        "label": "General Region Size Guide metaobject handle",
+        "default": "region-size-guide-general"
+      },
+      {
+        "type": "richtext",
+        "id": "size_guide_modal_footer",
+        "label": "Size Guide modal footer"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "accordion_item",
+        "name": "Accordion item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Accordion label"
+          },
+          {
+            "type": "select",
+            "id": "content_type",
+            "label": "Content type",
+            "default": "text",
+            "options": [
+              {
+                "value": "text",
+                "label": "Text"
+              },
+              {
+                "value": "page",
+                "label": "Page"
+              }
+            ]
+          },
+          {
+            "type": "richtext",
+            "id": "content_text",
+            "label": "Content - text"
+          },
+          {
+            "type": "page",
+            "id": "content_page",
+            "label": "Content - page"
+          }
+        ]
+      },
+      {
+        "type": "accordion_item_desc",
+        "name": "Product Description",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Accordion label",
+            "info": "This block will render the product's description within the accordion"
+          }
+        ]
+      },
+      {
+        "type": "click_and_collect_trigger",
+        "name": "Click & Collect Trigger",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Accordion label",
+            "info": "This item will have no content, the click & collect modal will be triggered if clicked."
+          }
+        ]
+      },
+      {
+        "type": "cta",
+        "name": "CTA",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "select",
+            "id": "icon",
+            "label": "Icon",
+            "options": [
+              {
+                "value": "shipping",
+                "label": "Shipping"
+              },
+              {
+                "value": "returns",
+                "label": "Returns"
+              },
+              {
+                "value": "expand",
+                "label": "Expand"
+              },
+              {
+                "value": "size",
+                "label": "Coathanger"
+              },
+              {
+                "value": "gift",
+                "label": "Gift"
+              },
+              {
+                "value": "globe-region",
+                "label": "Globe"
+              }
+            ],
+            "default": "shipping"
+          }
+        ]
+      }
+    ],
+    "enabled_on": {
+      "templates": ["product"]
+    }
+  }
+{% endschema %}
