@@ -178,7 +178,7 @@
             {%- endif -%}
 
             {%- if section.settings.enable_store_availability -%}
-              <button class="btn-none" type="button">
+              <button class="btn-none" type="button" onclick="window.Brauz_openStoreSelectorModal()">
                 <span>Store Availability</span>
                 {% render 'icon-pin-location' %}
               </button>
