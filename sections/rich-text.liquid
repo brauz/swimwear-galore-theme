@@ -1,0 +1,522 @@
+{% liquid
+  assign text_color = section.settings.text_color
+  assign text_color_alpha = text_color.alpha
+  if text_color_alpha == 0
+    assign text_color = blank
+  endif
+  assign pre_title_color = section.settings.pre_title_color
+  assign background_color = section.settings.background_color
+  assign gradient_color = section.settings.gradient_color
+  assign background_color_alpha = background_color.alpha
+  if background_color_alpha == 0
+    assign background_color = blank
+  endif
+
+  assign pre_title = section.settings.pre_title
+  assign title = section.settings.title
+  assign title_size = section.settings.title_size
+  assign post_title = section.settings.post_title
+  assign content = section.settings.content
+  assign button_label_1 = section.settings.button_label_1
+  assign button_link_1 = section.settings.button_link_1
+  assign button_style_1 = section.settings.button_style_1
+  assign button_label_2 = section.settings.button_label_2
+  assign button_link_2 = section.settings.button_link_2
+  assign button_style_2 = section.settings.button_style_2
+  assign button_label_3 = section.settings.button_label_3
+  assign button_link_3 = section.settings.button_link_3
+
+  assign show_gradient = section.settings.show_gradient
+  assign show_with_swimsuit_galore = section.settings.show_with_swimsuit_galore
+
+  assign graphic = section.settings.graphic
+  assign show_graphic = section.settings.show_graphic
+  assign graphic_color = section.settings.graphic_color
+
+  assign align_text = section.settings.align_text
+
+  assign show_button_1 = false
+  if button_label_1 != blank and button_link_1 != blank
+    assign show_button_1 = true
+  endif
+  assign show_button_2 = false
+  if button_label_2 != blank and button_link_2 != blank
+    assign show_button_2 = true
+  endif
+
+  assign show_section = false
+  if pre_title != blank or title != blank or post_title != blank or content != blank or show_button_1 or show_button_2
+    assign show_section = true
+  endif
+%}
+
+{% if show_section %}
+  {%- capture section_styles -%}
+    {%- if text_color != blank -%}--text-color: {{ text_color }};{%- endif -%}
+    {%- if background_color != blank -%}--background-color: {{ background_color }};{%- endif -%}
+    {%- if pre_title_color != blank -%}--pre-title-color: {{ pre_title_color }};{%- endif -%}
+    {%- if graphic_color -%}--graphic-color: var(--{{ graphic_color }});{%- endif -%}
+    {%- if show_gradient == true -%}
+        {%- if gradient_color != blank -%}--gradient-color: var(--{{ gradient_color }});{%- endif -%}
+    {%- endif -%}
+  {%- endcapture -%}
+
+  <section
+    class="section section--rich-text"
+    data-section-id="{{ section.id }}"
+    data-section-type="rich-text"
+    {% if section_styles != blank %}
+      style="{{ section_styles }}"
+    {% endif %}
+  >
+    <div class="container">
+      <div class="rich-text__container {{ align_text }}">
+        {% render 'section-content',
+          text_color: text_color,
+          pre_title: pre_title,
+          title: title,
+          title_size: title_size,
+          post_title: post_title,
+          content: content,
+          show_button_1: show_button_1,
+          button_label_1: button_label_1,
+          button_link_1: button_link_1,
+          button_style_1: button_style_1,
+          button_has_icon_1: true,
+          show_button_2: show_button_2,
+          button_label_2: button_label_2,
+          button_link_2: button_link_2,
+          button_style_2: button_style_2,
+          button_has_icon_2: true
+        %}
+        {%- if show_with_swimsuit_galore == true -%}
+          <div class="rich-text__with-swimsuit-galore">
+            <p>with</p>
+            {% render 'logo' %}
+          </div>
+        {%- endif -%}
+        {%- if button_label_3 != blank -%}
+          {%- if button_link_3 != blank -%}
+            <a href="{{ button_link_3 }}">
+          {%- endif -%}
+          <div class="rich-text__button-three">{{ button_label_3 }}</div>
+          {%- if button_link_3 != blank -%}
+            </a>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    </div>
+    {% liquid
+      if show_graphic == true
+        case graphic
+          when '1'
+            render 'graphic-1'
+          when '2'
+            render 'graphic-2'
+          when '3'
+            render 'graphic-3'
+          when '4'
+            render 'graphic-4'
+          when '5'
+            render 'graphic-5'
+          when '6'
+            render 'graphic-6'
+          when '7'
+            render 'graphic-7'
+          when '8'
+            render 'graphic-8'
+          when '9'
+            render 'graphic-9'
+        endcase
+      endif
+    %}
+  </section>
+{% endif %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-bottom: {{ section.settings.bottom_margin_mobile }}px;
+    padding-top: {{ section.settings.top_padding_mobile }}px;
+    padding-bottom: {{ section.settings.bottom_padding_mobile }}px;
+  }
+
+  @media only screen and (min-width: {{ settings.grid_medium }}px) {
+    #shopify-section-{{ section.id }} {
+      margin-bottom: {{ section.settings.bottom_margin_desktop }}px;
+      padding-top: {{ section.settings.top_padding_desktop }}px;
+      padding-bottom: {{ section.settings.bottom_padding_desktop }}px;
+    }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Rich Text",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content Settings"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "pre_title",
+        "label": "Pre title"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "Title",
+        "default": "<p>Talk about your brand</p>"
+      },
+      {
+        "type": "select",
+        "id": "title_size",
+        "label": "Title size",
+        "default": "h2",
+        "options": [
+          {
+            "value": "hero-heading-3",
+            "label": "X Large"
+          },
+          {
+            "value": "h2",
+            "label": "Large"
+          },
+          {
+            "value": "h4",
+            "label": "Small"
+          }
+        ]
+      },
+      {
+        "type": "inline_richtext",
+        "id": "post_title",
+        "label": "Post title"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "select",
+        "id": "align_text",
+        "label": "Align text",
+        "default": "center",
+        "options": [
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "indent_left",
+            "label": "Indent left"
+          },
+          {
+            "value": "indent_right",
+            "label": "Indent right"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_gradient",
+        "label": "Show gradient?",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Colour Settings"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background colour"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text colour"
+      },
+      {
+        "type": "color",
+        "id": "pre_title_color",
+        "label": "Pre title colour"
+      },
+      {
+        "type": "select",
+        "id": "gradient_color",
+        "label": "Gradient Colour",
+        "options": [
+          {
+            "value": "accent-one",
+            "label": "Accent One"
+          },
+          {
+            "value": "accent-two",
+            "label": "Accent Two"
+          }
+        ],
+        "default": "accent-two"
+      },
+      {
+        "type": "header",
+        "content": "Button Settings"
+      },
+      {
+        "type": "text",
+        "id": "button_label_1",
+        "label": "First button label",
+        "info": "Leave the label or link blank to hide the button."
+      },
+      {
+        "type": "url",
+        "id": "button_link_1",
+        "label": "First button link",
+        "info": "Leave the label or link blank to hide the button."
+      },
+      {
+        "type": "select",
+        "id": "button_style_1",
+        "label": "First button style",
+        "default": "",
+        "options": [
+          {
+            "value": "",
+            "label": "Primary"
+          },
+          {
+            "value": "secondary",
+            "label": "Secondary"
+          },
+          {
+            "value": "text",
+            "label": "Text"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "button_label_2",
+        "label": "Second button label",
+        "info": "Leave the label or link blank to hide the button."
+      },
+      {
+        "type": "url",
+        "id": "button_link_2",
+        "label": "Second button link",
+        "info": "Leave the label or link blank to hide the button."
+      },
+      {
+        "type": "select",
+        "id": "button_style_2",
+        "label": "Second button style",
+        "default": "",
+        "options": [
+          {
+            "value": "",
+            "label": "Primary"
+          },
+          {
+            "value": "secondary",
+            "label": "Secondary"
+          },
+          {
+            "value": "text",
+            "label": "Text"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "button_label_3",
+        "label": "Third button label",
+        "info": "Leave the label or link blank to hide the button. NOTE: This button appears at the bottom of the section."
+      },
+      {
+        "type": "url",
+        "id": "button_link_3",
+        "label": "Third button link",
+        "info": "Leave the label or link blank to hide the button."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_with_swimsuit_galore",
+        "label": "Show 'with swimsuit galore'",
+        "default": false,
+        "info": "Displays the 'with swimsuit galore' logo underneath the text"
+      },
+      {
+        "type": "header",
+        "content": "Graphic"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_graphic",
+        "label": "Show Graphic?",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "graphic",
+        "label": "Graphic",
+        "options": [
+          {
+            "group": "graphic",
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "group": "graphic",
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "group": "graphic",
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "group": "graphic",
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "group": "graphic",
+            "value": "5",
+            "label": "5"
+          },
+          {
+            "group": "graphic",
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "group": "graphic",
+            "value": "7",
+            "label": "7"
+          },
+          {
+            "group": "graphic",
+            "value": "8",
+            "label": "8"
+          },
+          {
+            "group": "graphic",
+            "value": "9",
+            "label": "9"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "graphic_color",
+        "label": "Graphic Colour",
+        "options": [
+          {
+            "value": "accent-one",
+            "label": "Accent One"
+          },
+          {
+            "value": "accent-two",
+            "label": "Accent Two"
+          },
+          {
+            "value": "color-white",
+            "label": "White"
+          },
+          {
+            "value": "color-background-2",
+            "label": "Background 2"
+          },
+          {
+            "value": "color-background-3",
+            "label": "Background 3"
+          }
+        ],
+        "default": "accent-two"
+      },
+      {
+        "type": "header",
+        "content": "Section Spacing"
+      },
+      {
+        "type": "header",
+        "content": "Section Spacing"
+      },
+      {
+        "type": "range",
+        "id": "top_padding_desktop",
+        "min": 0,
+        "max": 128,
+        "step": 8,
+        "unit": "px",
+        "label": "Top Padding - Desktop",
+        "default": 128
+      },
+      {
+        "type": "range",
+        "id": "bottom_padding_desktop",
+        "min": 0,
+        "max": 128,
+        "step": 8,
+        "unit": "px",
+        "label": "Bottom Padding - Desktop",
+        "default": 128
+      },
+      {
+        "type": "range",
+        "id": "top_padding_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 8,
+        "unit": "px",
+        "label": "Top Padding - Mobile",
+        "default": 64
+      },
+      {
+        "type": "range",
+        "id": "bottom_padding_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 8,
+        "unit": "px",
+        "label": "Bottom Padding - Mobile",
+        "default": 64
+      },
+      {
+        "type": "range",
+        "id": "bottom_margin_desktop",
+        "min": 0,
+        "max": 128,
+        "step": 8,
+        "unit": "px",
+        "label": "Bottom Margin - Desktop",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "bottom_margin_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 8,
+        "unit": "px",
+        "label": "Bottom Margin - Mobile",
+        "default": 64
+      }
+    ],
+    "presets": [
+      {
+        "name": "Rich Text"
+      }
+    ],
+    "enabled_on": {
+      "templates": ["*"],
+      "groups": ["footer"]
+    }
+  }
+{% endschema %}

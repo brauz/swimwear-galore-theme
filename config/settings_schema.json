@@ -1,0 +1,1259 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Swimwear Galore",
+    "theme_version": "1.0.0",
+    "theme_author": "The Working Party",
+    "theme_documentation_url": "https:\/\/github.com\/the-working-party\/swimwear-galore",
+    "theme_support_url": "https:\/\/github.com\/the-working-party\/swimwear-galore\/issues"
+  },
+  {
+    "name": "Ecommerce",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_ecommerce",
+        "label": "Enable Ecommerce",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Search settings"
+      },
+      {
+        "type": "select",
+        "id": "search_integration",
+        "label": "Integrate search using",
+        "options": [
+          {
+            "value": "tagalys",
+            "label": "Tagalys"
+          },
+          {
+            "value": "shopify",
+            "label": "Shopify"
+          }
+        ],
+        "default": "tagalys"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_instant_search",
+        "label": "Enable Instant Search",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Instant search settings",
+        "info": "Select which search results you want to display for quick search"
+      },
+      {
+        "type": "checkbox",
+        "id": "search_display_suggestions",
+        "label": "Suggestions",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "search_display_products",
+        "label": "Products",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "search_display_collections",
+        "label": "Collections",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "search_display_pages",
+        "label": "Pages",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "search_display_articles",
+        "label": "Articles",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "search_header_display_results",
+        "label": "Max results per category",
+        "min": 1,
+        "max": 10,
+        "default": 4
+      },
+      {
+        "type": "select",
+        "id": "search_unavailable_products",
+        "label": "Display unavailable products",
+        "options": [
+          {
+            "label": "Show",
+            "value": "show"
+          },
+          {
+            "label": "Hide",
+            "value": "hide"
+          },
+          {
+            "label": "Display last",
+            "value": "last"
+          }
+        ],
+        "default": "last"
+      },
+      {
+        "type": "header",
+        "content": "Search Fields",
+        "info": "For the best search experience, you should use as few fields as possible."
+      },
+      {
+        "type": "checkbox",
+        "id": "search_author",
+        "label": "Author",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "search_body",
+        "label": "Body",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "search_product_type",
+        "label": "Product Type",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "search_tag",
+        "label": "Tag",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "search_title",
+        "label": "Title",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "search_variants_barcode",
+        "label": "Variants Barcode",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "search_variants_sku",
+        "label": "Variants SKU",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "search_variants_title",
+        "label": "Variants Title",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "search_vendor",
+        "label": "Vendor",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Custom Search Suggestions"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_custom_search_suggestions",
+        "label": "Show custom search suggestions",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "search_suggestions_list",
+        "label": "Keyword Suggestion List",
+        "info": "Comma-separated list of search terms eg. Dresses, Skirts"
+      },
+      {
+        "type": "collection",
+        "id": "search_featured_products",
+        "label": "Featured Products",
+        "info": "Used if search is integrating using Shopify."
+      },
+      {
+        "type": "text",
+        "id": "tagalys_featured_products_widget_id",
+        "label": "Featured Products Widget ID",
+        "info": "Used if search is integrating using Tagalys."
+      }
+    ]
+  },
+  {
+    "name": "Regionalisation",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Shop Country"
+      },
+      {
+        "type": "text",
+        "id": "shop_country_iso_code",
+        "label": "Shop country ISO code"
+      },
+      {
+        "type": "header",
+        "content": "Enable Regionalisation Features"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_hreflangs",
+        "label": "Enable hreflangs",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_region_selector",
+        "label": "Enable region selector",
+        "default": false,
+        "info": "Enable manual region selector in site footer. Must also be added in Footer settings."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_autoredirects",
+        "label": "Enable auto-redirects",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "prevent_redirect_param",
+        "label": "Prevent redirect URL parameter",
+        "placeholder": "currency",
+        "info": "OPTIONAL: Prevent auto-redirects if URL contains this query parameter. Can be useful to resolve Google Ads issues."
+      },
+      {
+        "type": "header",
+        "content": "Region Data"
+      },
+      {
+        "type": "paragraph",
+        "content": "Region data entered below should be duplicated across all stores. Enter data for every region, including this one."
+      },
+      {
+        "type": "header",
+        "content": "Region 1"
+      },
+      {
+        "type": "text",
+        "id": "1_region_name",
+        "label": "Region 1 Name",
+        "info": "Will be shown in region selector."
+      },
+      {
+        "type": "text",
+        "id": "1_region_code",
+        "label": "Region 1 Code",
+        "info": "The internal code for this region e.g. aus or AU or asia-pacific."
+      },
+      {
+        "type": "text",
+        "id": "1_region_domain",
+        "label": "Region 1 Domain",
+        "info": "The full URL of the live store e.g. https:\/\/www.example.com.au"
+      },
+      {
+        "type": "textarea",
+        "id": "1_region_country_list",
+        "label": "Region 1 Country Codes",
+        "info": "Add a comma-separated list of country codes (in ISO 3166-1 alpha-2 format) that are assigned to the store. e.g. AU,NZ or US,CA or SG,MY,HK. This is used for hreflangs as well as redirect logic."
+      },
+      {
+        "type": "checkbox",
+        "id": "1_region_current",
+        "label": "Current region",
+        "default": false,
+        "info": "Check this box for the current store region being edited."
+      },
+      {
+        "type": "checkbox",
+        "id": "1_region_default",
+        "label": "Default region",
+        "default": false,
+        "info": "Check this box for the main\/international region store ONLY."
+      },
+      {
+        "type": "header",
+        "content": "Region 2"
+      },
+      {
+        "type": "text",
+        "id": "2_region_name",
+        "label": "Region 2 Name",
+        "info": "Will be shown in region selector."
+      },
+      {
+        "type": "text",
+        "id": "2_region_code",
+        "label": "Region 2 Code",
+        "info": "The internal code for this region e.g. aus or AU or asia-pacific."
+      },
+      {
+        "type": "text",
+        "id": "2_region_domain",
+        "label": "Region 2 Domain",
+        "info": "The full URL of the live store e.g. https:\/\/www.example.com.au"
+      },
+      {
+        "type": "textarea",
+        "id": "2_region_country_list",
+        "label": "Region 2 Country Codes",
+        "info": "Add a comma-separated list of country codes (in ISO 3166-1 alpha-2 format) that are assigned to the store. e.g. AU,NZ or US,CA or SG,MY,HK. This is used for hreflangs as well as redirect logic."
+      },
+      {
+        "type": "checkbox",
+        "id": "2_region_current",
+        "label": "Current region",
+        "default": false,
+        "info": "Check this box for the current store region being edited."
+      },
+      {
+        "type": "checkbox",
+        "id": "2_region_default",
+        "label": "Default region",
+        "default": false,
+        "info": "Check this box for the main\/international region store ONLY."
+      },
+      {
+        "type": "header",
+        "content": "Region 3"
+      },
+      {
+        "type": "text",
+        "id": "3_region_name",
+        "label": "Region 3 Name",
+        "info": "Will be shown in region selector."
+      },
+      {
+        "type": "text",
+        "id": "3_region_code",
+        "label": "Region 3 Code",
+        "info": "The internal code for this region e.g. aus or AU or asia-pacific."
+      },
+      {
+        "type": "text",
+        "id": "3_region_domain",
+        "label": "Region 3 Domain",
+        "info": "The full URL of the live store e.g. https:\/\/www.example.com.au"
+      },
+      {
+        "type": "textarea",
+        "id": "3_region_country_list",
+        "label": "Region 3 Country Codes",
+        "info": "Add a comma-separated list of country codes (in ISO 3166-1 alpha-2 format) that are assigned to the store. e.g. AU,NZ or US,CA or SG,MY,HK. This is used for hreflangs as well as redirect logic."
+      },
+      {
+        "type": "checkbox",
+        "id": "3_region_current",
+        "label": "Current region",
+        "default": false,
+        "info": "Check this box for the current store region being edited."
+      },
+      {
+        "type": "checkbox",
+        "id": "3_region_default",
+        "label": "Default region",
+        "default": false,
+        "info": "Check this box for the main\/international region store ONLY."
+      },
+      {
+        "type": "header",
+        "content": "Region 4"
+      },
+      {
+        "type": "text",
+        "id": "4_region_name",
+        "label": "Region 4 Name",
+        "info": "Will be shown in region selector."
+      },
+      {
+        "type": "text",
+        "id": "4_region_code",
+        "label": "Region 4 Code",
+        "info": "The internal code for this region e.g. aus or AU or asia-pacific."
+      },
+      {
+        "type": "text",
+        "id": "4_region_domain",
+        "label": "Region 4 Domain",
+        "info": "The full URL of the live store e.g. https:\/\/www.example.com.au"
+      },
+      {
+        "type": "textarea",
+        "id": "4_region_country_list",
+        "label": "Region 4 Codes",
+        "info": "Add a comma-separated list of country codes (in ISO 3166-1 alpha-2 format) that are assigned to the store. e.g. AU,NZ or US,CA or SG,MY,HK. This is used for hreflangs as well as redirect logic."
+      },
+      {
+        "type": "checkbox",
+        "id": "4_region_current",
+        "label": "Current region",
+        "default": false,
+        "info": "Check this box for the current store region being edited."
+      },
+      {
+        "type": "checkbox",
+        "id": "4_region_default",
+        "label": "Default region",
+        "default": false,
+        "info": "Check this box for the main\/international region store ONLY."
+      },
+      {
+        "type": "header",
+        "content": "Region 5"
+      },
+      {
+        "type": "text",
+        "id": "5_region_name",
+        "label": "Region 5 Name",
+        "info": "Will be shown in region selector."
+      },
+      {
+        "type": "text",
+        "id": "5_region_code",
+        "label": "Region 5 Code",
+        "info": "The internal code for this region e.g. aus or AU or asia-pacific."
+      },
+      {
+        "type": "text",
+        "id": "5_region_domain",
+        "label": "Region 5 Domain",
+        "info": "The full URL of the live store e.g. https:\/\/www.example.com.au"
+      },
+      {
+        "type": "textarea",
+        "id": "5_region_country_list",
+        "label": "Region 5 Country Codes",
+        "info": "Add a comma-separated list of country codes (in ISO 3166-1 alpha-2 format) that are assigned to the store. e.g. AU,NZ or US,CA or SG,MY,HK. This is used for hreflangs as well as redirect logic."
+      },
+      {
+        "type": "checkbox",
+        "id": "5_region_current",
+        "label": "Current region",
+        "default": false,
+        "info": "Check this box for the current store region being edited."
+      },
+      {
+        "type": "checkbox",
+        "id": "5_region_default",
+        "label": "Default region",
+        "default": false,
+        "info": "Check this box for the main\/international region store ONLY."
+      }
+    ]
+  },
+  {
+    "name": "SEO JSON-LD",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "text",
+        "id": "jsonld_custom_shop_name",
+        "label": "Custom Shop name",
+        "info": "Store display name used in JSON-LD"
+      },
+      {
+        "type": "header",
+        "content": "Organization"
+      },
+      {
+        "type": "checkbox",
+        "id": "jsonld_hide_organization",
+        "label": "Hide Organization schema",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "business_type",
+        "label": "Business type",
+        "default": "Organization",
+        "options": [
+          {
+            "value": "Organization"
+          },
+          {
+            "value": "LocalBusiness"
+          },
+          {
+            "value": "Store"
+          },
+          {
+            "value": "AutoPartsStore"
+          },
+          {
+            "value": "BikeStore"
+          },
+          {
+            "value": "BookStore"
+          },
+          {
+            "value": "ClothingStore"
+          },
+          {
+            "value": "ComputerStore"
+          },
+          {
+            "value": "ConvenienceStore"
+          },
+          {
+            "value": "DepartmentStore"
+          },
+          {
+            "value": "ElectronicsStore"
+          },
+          {
+            "value": "Florist"
+          },
+          {
+            "value": "FurnitureStore"
+          },
+          {
+            "value": "GardenStore"
+          },
+          {
+            "value": "GroceryStore"
+          },
+          {
+            "value": "HardwareStore"
+          },
+          {
+            "value": "HobbyShop"
+          },
+          {
+            "value": "HomeGoodsStore"
+          },
+          {
+            "value": "JewelryStore"
+          },
+          {
+            "value": "LiquorStore"
+          },
+          {
+            "value": "MensClothingStore"
+          },
+          {
+            "value": "MobilePhoneStore"
+          },
+          {
+            "value": "MovieRentalStore"
+          },
+          {
+            "value": "MusicStore"
+          },
+          {
+            "value": "OfficeEquipmentStore"
+          },
+          {
+            "value": "OutletStore"
+          },
+          {
+            "value": "PawnShop"
+          },
+          {
+            "value": "PetStore"
+          },
+          {
+            "value": "ShoeStore"
+          },
+          {
+            "value": "SportingGoodsStore"
+          },
+          {
+            "value": "TireShop"
+          },
+          {
+            "value": "ToyStore"
+          },
+          {
+            "value": "WholesaleStore"
+          }
+        ]
+      },
+      {
+        "type": "image_picker",
+        "id": "seo_logo",
+        "label": "Logo",
+        "info": "150px wide"
+      },
+      {
+        "type": "image_picker",
+        "id": "seo_image",
+        "label": "Image of business",
+        "info": "800x450px"
+      },
+      {
+        "type": "text",
+        "id": "seo_map",
+        "label": "Map address",
+        "info": "URL to a Google map (defaults to your address geolocation)"
+      },
+      {
+        "type": "text",
+        "id": "seo_price_range",
+        "label": "Price range",
+        "info": "Scale of 1-5 in $ (eg. $$$)"
+      },
+      {
+        "type": "header",
+        "content": "Products"
+      },
+      {
+        "type": "checkbox",
+        "id": "jsonld_hide_products",
+        "label": "Hide Product schema",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "jsonld_hide_vendor",
+        "label": "Hide vendor in Product schema",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "jsonld_use_google_sku",
+        "label": "Use Google Merchant Center SKU format",
+        "info": "Uses shopify_{{ iso code }}_{{ product.id }}_{{ variant.id }} SKU format in Offers array",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "jsonld_google_sku_iso_code",
+        "label": "Merchant Center SKU format ISO code",
+        "info": "Store country ISO-2 code",
+        "placeholder": "AU"
+      },
+      {
+        "type": "paragraph",
+        "content": "To show aggregate ratings for products, you'll need a rating app and to add metafields to the product"
+      },
+      {
+        "type": "header",
+        "content": "Collections"
+      },
+      {
+        "type": "checkbox",
+        "id": "jsonld_hide_collections",
+        "label": "Hide CollectionPage schema",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Account",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "account_links",
+        "label": "Links on the account pages."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_login_modal",
+        "label": "Enable login \/ register modal",
+        "info": "When enabled the default behaviour of the login and register links will be to open a model.",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Colours",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary colour",
+        "default": "#3a5387"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent colour",
+        "default": "#d382df"
+      },
+      {
+        "type": "color",
+        "id": "theme_color",
+        "label": "Theme color",
+        "default": "#3FB0E0",
+        "info": "This is used for the theme color in the browser interface"
+      }
+    ]
+  },
+  {
+    "name": "Page Transitions",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Toggle the full-page reveal transition animation on and off. For performance reasons, it's disabled by default."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_fader",
+        "label": "Enable page transition animation",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Grid",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Breakpoints"
+      },
+      {
+        "type": "paragraph",
+        "content": "Match the pixel values of the screen breakpoints defined in the styles so that media queries within theme sections are consistent. Shouldn't be changed once the theme styles are defined."
+      },
+      {
+        "type": "text",
+        "id": "grid_small",
+        "label": "Small",
+        "default": "480"
+      },
+      {
+        "type": "text",
+        "id": "grid_medium",
+        "label": "Medium",
+        "default": "768"
+      },
+      {
+        "type": "text",
+        "id": "grid_large",
+        "label": "Large",
+        "default": "990"
+      },
+      {
+        "type": "text",
+        "id": "grid_xl",
+        "label": "XL",
+        "default": "1400"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social sharing options"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_blog",
+        "label": "Enable sharing for blog articles",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Share on Facebook",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Tweet on Twitter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pin on Pinterest",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Collections",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Filters"
+      },
+      {
+        "type": "text",
+        "label": "Collection Header Filters",
+        "id": "collection_header_filter_facet_type",
+        "info": "Please enter the label of any filter from \/apps\/search-and-discovery\/filters. This will separate these filters and display them in the collection header."
+      },
+      {
+        "type": "text",
+        "label": "Filters with Swatches",
+        "id": "filters_with_swatches",
+        "info": "Comma separated list with the filter names that should display as swatches e.g. Color,Collection",
+        "default": "Colour,Color,Collection"
+      }
+    ]
+  },
+  {
+    "name": "Product",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Badges"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_custom_badges",
+        "label": "Show custom badges",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sold_out_badges",
+        "label": "Show sold out badges",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_on_sale_badges",
+        "label": "Show on sale badges",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "On sale badge"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_on_sale_badge_as_percentage",
+        "label": "Show on sale badge as Percentage",
+        "default": false
+      },
+      {
+        "type": "number",
+        "id": "variant_low_stock_threshold",
+        "label": "Variant Low Stock Threshold",
+        "info": "Used on product variant selectors, if variant is at or below this threshold, 'low stock' indicator will display",
+        "default": 2
+      },
+      {
+        "type": "page",
+        "id": "brands_page",
+        "label": "Brands Page"
+      }
+    ]
+  },
+  {
+    "name": "Product Card",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_secondary_images",
+        "label": "Show additional images in carousel",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "include_form",
+        "label": "Include add to cart form",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Product Stitching",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "product_page_display_swatches",
+        "label": "Display swatches on product page",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "product_card_display_swatches",
+        "label": "Display swatches on product cards"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_cart_button_in_sidecart",
+        "label": "Enable cart button in side cart",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_afterpay_in_sidecart",
+        "label": "Display Afterpay in side cart",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Free Shipping Bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "free_shipping_bar_enabled",
+        "label": "Enable free shipping progress bar",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_bar_service_1",
+        "label": "First service level name",
+        "default": "Standard Shipping"
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_bar_threshold_1",
+        "label": "First service level threshold",
+        "info": "Spend required to unlock free shipping for first service level",
+        "default": "50.00"
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_bar_service_2",
+        "label": "Second service level name (optional)",
+        "placeholder": "Express Shipping"
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_bar_threshold_2",
+        "label": "Second service level threshold (optional)",
+        "info": "Spend required to unlock free shipping for second service level",
+        "placeholder": "100.00"
+      },
+      {
+        "type": "header",
+        "content": "Shipping"
+      },
+      {
+        "type": "text",
+        "id": "cart_shipping_price",
+        "label": "Shipping price",
+        "default": "10.00"
+      },
+      {
+        "type": "header",
+        "content": "Custom Message",
+        "info": "You can show a custom message in the cart which sits just below the header (and after the Free Shipping Bar if enabled)"
+      },
+      {
+        "type": "checkbox",
+        "id": "custom_message_enabled",
+        "label": "Show custom message",
+        "default": true
+      },
+      {
+        "type": "inline_richtext",
+        "id": "custom_message",
+        "label": "Custom Message in the cart"
+      }
+    ]
+  },
+  {
+    "name": "Buy Now Pay Later",
+    "settings": [
+      {
+        "type": "page",
+        "id": "afterpay_info_page",
+        "label": "Afterpay info page"
+      }
+    ]
+  },
+  {
+    "name": "Wishlist",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_wishlist",
+        "label": "Enable Wishlist",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "wishlist_page_path",
+        "label": "Wishlist Page Path",
+        "default": "a\/wishlist"
+      }
+    ]
+  },
+  {
+    "name": "Mix and Match",
+    "settings": [
+      {
+        "type": "text",
+        "id": "mix_and_match_type_order",
+        "label": "Type order",
+        "info": "Order of display of product types in mix and match modal, comma-separated eg tops,bottoms,one-piece, accessories",
+        "default": "Accessories, Bikini Tops, Boardshorts"
+      }
+    ]
+  },
+  {
+    "name": "Gift card",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "giftcard_image",
+        "label": "Gift card image",
+        "info": "At least 850px wide"
+      }
+    ]
+  },
+  {
+    "name": "DNS Preconnects",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_preconnects",
+        "label": "Enable DNS Preconnects",
+        "default": false
+      },
+      {
+        "type": "link_list",
+        "id": "dns_preconnects_linklist",
+        "label": "Assign a navigation list",
+        "info": "Link list of URLs to preconnect to on load. Recommend a maximum of 2-3."
+      }
+    ]
+  },
+  {
+    "name": "Customers",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Addresses"
+      },
+      {
+        "type": "checkbox",
+        "id": "customers_addresses_limit_countries",
+        "label": "Limit to shipping countries",
+        "info": "Hide countries you don't ship to from address forms in customer Account page.",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Password page",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "password_background_image",
+        "label": "Background image"
+      },
+      {
+        "type": "checkbox",
+        "id": "password_include_subscribe",
+        "label": "Include subscribe form",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "jQuery",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "load_jquery",
+        "label": "Load jQuery library",
+        "default": false,
+        "info": "When enabled, jQuery will be loaded by the theme. For performance reasons, enable this setting if multiple instances of jQuery are being loaded by third-party apps."
+      }
+    ]
+  },
+  {
+    "name": "Tagalys",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_tagalys",
+        "label": "Enable Tagalys"
+      },
+      {
+        "type": "text",
+        "id": "tagalys_sdk_url",
+        "label": "SDK URL"
+      },
+      {
+        "type": "text",
+        "id": "tagalys_server_url",
+        "label": "Server URL"
+      },
+      {
+        "type": "text",
+        "id": "tagalys_client_code",
+        "label": "Client Code"
+      },
+      {
+        "type": "text",
+        "id": "tagalys_api_key",
+        "label": "API Key"
+      },
+      {
+        "type": "text",
+        "id": "tagalys_storefront_access_token",
+        "label": "Tagalys Storefront API Access Token",
+        "info": "Shopify Custom App. Used for multi-currency search and recommendations."
+      },
+      {
+        "type": "text",
+        "id": "tagalys_store_id",
+        "label": "Store ID"
+      },
+      {
+        "type": "header",
+        "content": "Recommendation Widgets",
+        "info": "Widget Recommendation IDs can be found in the Tagalys dashboard."
+      },
+      {
+        "type": "text",
+        "id": "tagalys_cross_selling_widget_id",
+        "label": "Cross Selling Widget ID"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_tagalys_cross_selling_widget",
+        "label": "Enable cross welling widget in side cart"
+      },
+      {
+        "type": "text",
+        "id": "tagalys_similar_products_widget_id",
+        "label": "Similar Products Widget ID"
+      },
+      {
+        "type": "header",
+        "content": "Search Results"
+      },
+      {
+        "label": "No Results Widget ID",
+        "id": "tagalys_no_results_widget",
+        "type": "text",
+        "info": "Tagalys widget displayed if no relevant search results are found."
+      },
+      {
+        "label": "Number of products to display in No Results Widget",
+        "type": "range",
+        "id": "tagalys_no_results_product_limit",
+        "min": 4,
+        "max": 16,
+        "step": 1,
+        "default": 8
+      }
+    ]
+  },
+  {
+    "name": "Google Tag Manager",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Google Tag Manager"
+      },
+      {
+        "type": "checkbox",
+        "id": "gtm_enabled",
+        "label": "Enable Google Tag Manager",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "gtm_id",
+        "label": "Google Tag Manager ID"
+      },
+      {
+        "type": "header",
+        "content": "Google Analytics 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "ga4_enabled",
+        "label": "Enable Google Analytics 4",
+        "info": "Enables support for Google Analytics 4, requires Google Tag Manager to be enabled above",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Marker.io",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_marker_io",
+        "label": "Enable Marker.io",
+        "default": false,
+        "info": "For reporting bugs and getting website feedback, should be disabled on the live theme."
+      },
+      {
+        "type": "text",
+        "id": "marker_io_destination_id",
+        "label": "Destination ID"
+      }
+    ]
+  },
+  {
+    "name": "Littledata",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_littledata",
+        "label": "Enable Littledata",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "littledata_google_id",
+        "label": "Google ID"
+      }
+    ]
+  },
+  {
+    "name": "Brauz",
+    "settings": [
+      {
+        "type": "url",
+        "id": "brauz_script_url",
+        "label": "Brauz script url",
+        "info": "Required for Brauz integration. Specific to each store."
+      }
+    ]
+  },
+  {
+    "name": "Storefront API",
+    "settings": [
+      {
+        "type": "text",
+        "id": "storefront_api_version",
+        "label": "Storefront API version",
+        "default": "2024-04"
+      },
+      {
+        "type": "text",
+        "id": "storefront_api_key",
+        "label": "Storefront API key"
+      }
+    ]
+  }
+]

@@ -1,0 +1,275 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "include_breadcrumbs": true,
+        "include_gradient": true,
+        "gradient_color": "accent-one",
+        "bottom_margin_desktop": 64,
+        "bottom_margin_mobile": 64
+      }
+    },
+    "rich_text_HjwgPU": {
+      "type": "rich-text",
+      "settings": {
+        "pre_title": "",
+        "title": "<p>Free Styling Sessions<\/p>",
+        "title_size": "hero-heading-3",
+        "post_title": "",
+        "content": "<p>Upgrade your personal style with a one-on-one styling session at any Swimwear Galore store. Let our experienced team put together outfits that suit you best. Whether you need a great look for a special event or just want a new style, our specialists will find what's perfect for you. And the best part? It's totally free, and there's no pressure to buy anything.<\/p>",
+        "align_text": "center",
+        "show_gradient": true,
+        "background_color": "",
+        "text_color": "",
+        "pre_title_color": "",
+        "gradient_color": "accent-two",
+        "button_label_1": "",
+        "button_link_1": "",
+        "button_style_1": "",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "",
+        "button_label_3": "Available in-store and virtually!",
+        "button_link_3": "#",
+        "show_with_swimsuit_galore": true,
+        "show_graphic": false,
+        "graphic": "1",
+        "graphic_color": "accent-two",
+        "top_padding_desktop": 128,
+        "bottom_padding_desktop": 128,
+        "top_padding_mobile": 64,
+        "bottom_padding_mobile": 64,
+        "bottom_margin_desktop": 0,
+        "bottom_margin_mobile": 64
+      }
+    },
+    "image_banner_zc8Vwh": {
+      "type": "image-banner",
+      "blocks": {
+        "image_tCtMbN": {
+          "type": "image",
+          "settings": {
+            "background_image": "shopify:\/\/shop_images\/image_19.png",
+            "image_ratio": "landscape"
+          }
+        }
+      },
+      "block_order": [
+        "image_tCtMbN"
+      ],
+      "settings": {
+        "mobile_display": "contained",
+        "show_graphic": true,
+        "graphic": "8",
+        "graphic_color": "accent-two",
+        "enable_gradient": false,
+        "gradient_position": "left",
+        "gradient_color": "accent-two",
+        "background_color": "",
+        "bottom_margin_desktop": 0,
+        "bottom_margin_mobile": 0
+      }
+    },
+    "rich_text_Raip8q": {
+      "type": "rich-text",
+      "settings": {
+        "pre_title": "",
+        "title": "<p>Sit back, relax and let us do the swimwear searching for you... Styling swimwear has never been this easy! Book now to secure a spot with our experienced styling team<\/p>",
+        "title_size": "h2",
+        "post_title": "",
+        "content": "",
+        "align_text": "center",
+        "show_gradient": false,
+        "background_color": "",
+        "text_color": "",
+        "pre_title_color": "",
+        "gradient_color": "",
+        "button_label_1": "Book now",
+        "button_link_1": "shopify:\/\/blogs\/news\/the-best-seafolly-swimwear-for-an-european-summer-11",
+        "button_style_1": "",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "",
+        "button_label_3": "",
+        "button_link_3": "",
+        "show_with_swimsuit_galore": false,
+        "show_graphic": false,
+        "graphic": "1",
+        "graphic_color": "accent-two",
+        "top_padding_desktop": 96,
+        "bottom_padding_desktop": 96,
+        "top_padding_mobile": 64,
+        "bottom_padding_mobile": 64,
+        "bottom_margin_desktop": 0,
+        "bottom_margin_mobile": 64
+      }
+    },
+    "info_tiles_db7mKf": {
+      "type": "info-tiles",
+      "blocks": {
+        "title_3X9cCw": {
+          "type": "title",
+          "settings": {
+            "title": "In Store",
+            "content": "<p>60 minutes of one-on-one styling with our Swimwear Stylist at your preferred store<\/p><p>A detailed guide and run through of all the products our stylists think suit you and your needs<\/p><p>Previously chosen styles tailored to you ready on arrival (based on your questionnaire)<\/p><p>Complimentary Prosecco or sparkling\/still water<\/p>",
+            "opening_hours_info": "<p><strong>Available 6 days a week \/ 9am - 5pm<\/strong><\/p>",
+            "button_label_1": "Book Now",
+            "button_link_1": "shopify:\/\/pages\/book-a-stylist",
+            "button_style_1": "",
+            "button_label_2": "View Store Locations",
+            "button_link_2": "shopify:\/\/pages\/afterpay-info",
+            "button_style_2": "secondary"
+          }
+        },
+        "title_XxBHHx": {
+          "type": "title",
+          "settings": {
+            "title": "Virtual",
+            "content": "<p>60 minutes of one-on-one styling with our Swimwear Stylist (conducted through Zoom)<\/p><p>A detailed guide and run through of all the products our stylists think suit you and your needs<\/p><p>Previously chosen styles tailored to you ready for your virtual booking (based on your questionnaire)<\/p>",
+            "opening_hours_info": "<p><strong>Available Tuesday to Friday \/ 10am - 4pm AEST<\/strong><\/p>",
+            "button_label_1": "Book Now",
+            "button_link_1": "shopify:\/\/pages\/book-a-stylist",
+            "button_style_1": "",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_3X9cCw",
+        "title_XxBHHx"
+      ],
+      "settings": {
+        "show_gradient": true,
+        "gradient_color": "accent-two"
+      }
+    },
+    "image_with_text_88VbEC": {
+      "type": "image-with-text",
+      "blocks": {
+        "button_hkcFpX": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Book Now",
+            "button_link": "shopify:\/\/pages\/book-a-stylist",
+            "button_style": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_hkcFpX"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_1684_1a0d0357-b048-4234-b23f-27a54f7fc722.png",
+        "layout": "left",
+        "pre_title": "",
+        "title": "<p>We know all about style<\/p>",
+        "post_title": "",
+        "content": "<p>Because here at Swimwear Galore, our stylists live and breathe swimwear. They know all of the latest trends and styles. As we stock such a wide range of brands, we ensure that all of our stylists attend an annual styling night in which different brands can showcase and explain in intricate detail everything about the latest collections.<\/p>",
+        "text_alignment_desktop": "left",
+        "text_alignment_mobile": "left",
+        "text_color": "",
+        "background_type": "color",
+        "background_color": "",
+        "gradient_position": "top",
+        "gradient_color": "accent-two",
+        "show_graphic": true,
+        "graphic": "4",
+        "graphic_size": "medium",
+        "graphic_color": "accent-two",
+        "bottom_margin_desktop": 120,
+        "bottom_margin_mobile": 0
+      }
+    },
+    "image_with_text_nfca3Y": {
+      "type": "image-with-text",
+      "blocks": {
+        "button_NzfWpM": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Book Now",
+            "button_link": "shopify:\/\/pages\/contact-us",
+            "button_style": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_NzfWpM"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_1684_b802fb32-1d69-461a-ab05-ff68231963b7.png",
+        "layout": "right",
+        "pre_title": "",
+        "title": "<p>We know how to find your perfect size<\/p>",
+        "post_title": "",
+        "content": "<p>Our stylists have been trained to find the best fit for YOU. We know that swimwear fits differently on every single body, so our stylists will tailor their recommendations to not only your preferred style, but also your cup size, shape, height, and most importantly, your comfort.<\/p>",
+        "text_alignment_desktop": "left",
+        "text_alignment_mobile": "left",
+        "text_color": "",
+        "background_type": "color",
+        "background_color": "",
+        "gradient_position": "top",
+        "gradient_color": "accent-two",
+        "show_graphic": false,
+        "graphic": "1",
+        "graphic_size": "medium",
+        "graphic_color": "accent-two",
+        "bottom_margin_desktop": 120,
+        "bottom_margin_mobile": 0
+      }
+    },
+    "image_with_text_7NBntV": {
+      "type": "image-with-text",
+      "blocks": {
+        "button_cNCBxh": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Book Now",
+            "button_link": "shopify:\/\/pages\/book-a-stylist",
+            "button_style": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_cNCBxh"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_1684_6c3bcbeb-aad3-41a4-9ccc-7a6bc7eae52e.png",
+        "layout": "left",
+        "pre_title": "",
+        "title": "<p>We know about fitting every BODY<\/p>",
+        "post_title": "",
+        "content": "<p>We specialise in speciality, taking the hard work out of looking for swimwear. So if you’re searching for larger cup fitting swimsuits, hydro-therapy, maternity or mastectomy styles, our stylists won’t just show you our extensive range, but they’ll also find the fabrication exclusively tailored to what you NEED.<\/p>",
+        "text_alignment_desktop": "left",
+        "text_alignment_mobile": "left",
+        "text_color": "",
+        "background_type": "gradient",
+        "background_color": "",
+        "gradient_position": "top",
+        "gradient_color": "accent-two",
+        "show_graphic": false,
+        "graphic": "1",
+        "graphic_size": "medium",
+        "graphic_color": "accent-two",
+        "bottom_margin_desktop": 0,
+        "bottom_margin_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_HjwgPU",
+    "image_banner_zc8Vwh",
+    "rich_text_Raip8q",
+    "info_tiles_db7mKf",
+    "image_with_text_88VbEC",
+    "image_with_text_nfca3Y",
+    "image_with_text_7NBntV"
+  ]
+}

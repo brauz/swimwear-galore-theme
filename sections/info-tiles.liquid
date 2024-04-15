@@ -1,0 +1,176 @@
+{% liquid
+  assign show_gradient = section.settings.show_gradient
+  assign gradient_color = section.settings.gradient_color
+  assign tile_count = section.blocks.size
+%}
+
+{%- if tile_count > 0 -%}
+  <section
+    class="section section--info-tiles tile-count__{{ tile_count }}"
+    data-section-id="{{ section.id }}"
+    data-section-type="info-tiles"
+  >
+    {%- if show_gradient == true -%}
+      <div class="gradient" style="--color: var(--{{ gradient_color }});"></div>
+    {%- endif -%}
+    {%- for block in section.blocks -%}
+      <div class="tile">
+        <div class="tile__body">
+          {%- if block.settings.title != blank -%}
+            <h3 class="h2">{{ block.settings.title }}</h3>
+          {%- endif -%}
+          {%- if block.settings.content != blank -%}
+            <div class="rte tile__content">{{ block.settings.content }}</div>
+          {%- endif -%}
+        </div>
+        <div class="tile__footer">
+          {%- if block.settings.opening_hours_info != blank -%}
+            <div class="rte tile__open-hours">{{ block.settings.opening_hours_info }}</div>
+          {%- endif -%}
+          <div class="tile__button-group">
+            {% liquid
+              if block.settings.button_link_1 != blank
+                render 'component-button' with link: block.settings.button_link_1, label: block.settings.button_label_1, modifiers: block.settings.button_style_1, button_has_icon: true
+              endif
+              if block.settings.button_link_2 != blank
+                render 'component-button' with link: block.settings.button_link_2, label: block.settings.button_label_2, modifiers: block.settings.button_style_2, button_has_icon: true
+              endif
+            %}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </section>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Info Tiles",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Gradient"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_gradient",
+        "label": "Show gradient?",
+        "default": true,
+        "info": "Adds a gradient to the bottom left of the section"
+      },
+      {
+        "type": "select",
+        "id": "gradient_color",
+        "label": "Gradient Colour",
+        "options": [
+          {
+            "value": "accent-one",
+            "label": "Accent One"
+          },
+          {
+            "value": "accent-two",
+            "label": "Accent Two"
+          }
+        ],
+        "default": "accent-two"
+      }
+    ],
+    "max_blocks": 2,
+    "blocks": [
+      {
+        "type": "title",
+        "name": "Tile",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content",
+            "info": "Press enter to insert a line break"
+          },
+          {
+            "type": "richtext",
+            "id": "opening_hours_info",
+            "label": "Opening hours info"
+          },
+          {
+            "type": "text",
+            "id": "button_label_1",
+            "label": "First button label",
+            "info": "Leave the label or link blank to hide the button."
+          },
+          {
+            "type": "url",
+            "id": "button_link_1",
+            "label": "First button link",
+            "info": "Leave the label or link blank to hide the button."
+          },
+          {
+            "type": "select",
+            "id": "button_style_1",
+            "label": "First button style",
+            "default": "",
+            "options": [
+              {
+                "value": "",
+                "label": "Primary"
+              },
+              {
+                "value": "secondary",
+                "label": "Secondary"
+              },
+              {
+                "value": "text",
+                "label": "Text"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "button_label_2",
+            "label": "Second button label",
+            "info": "Leave the label or link blank to hide the button."
+          },
+          {
+            "type": "url",
+            "id": "button_link_2",
+            "label": "Second button link",
+            "info": "Leave the label or link blank to hide the button."
+          },
+          {
+            "type": "select",
+            "id": "button_style_2",
+            "label": "Second button style",
+            "default": "",
+            "options": [
+              {
+                "value": "",
+                "label": "Primary"
+              },
+              {
+                "value": "secondary",
+                "label": "Secondary"
+              },
+              {
+                "value": "text",
+                "label": "Text"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Info Tiles"
+      }
+    ],
+    "enabled_on": {
+      "templates": ["*"]
+    }
+  }
+{% endschema %}

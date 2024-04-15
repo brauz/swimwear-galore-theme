@@ -1,0 +1,65 @@
+{
+  "current": {
+    "search_integration": "tagalys",
+    "search_header_display_results": 7,
+    "search_suggestions_list": "Swimwear, Curve, Sustainable",
+    "search_featured_products": "twp-test",
+    "tagalys_featured_products_widget_id": "ce7cd1dc5ad19c7486a6",
+    "grid_medium": "768",
+    "collection_header_filter_facet_type": "style",
+    "brands_page": "brands",
+    "product_card_display_swatches": true,
+    "free_shipping_bar_service_1": "Express Shipping",
+    "free_shipping_bar_threshold_1": "100",
+    "cart_shipping_price": "9.95",
+    "mix_and_match_type_order": "Bikini Tops, Tankini Tops, Bottoms, One Pieces, Clothing, Boardshorts",
+    "enable_tagalys": true,
+    "tagalys_sdk_url": "https:\/\/storage.googleapis.com\/tagalys-front-end-components\/tagalys-ui-widgets-2.0.0-beta3.min.js",
+    "tagalys_server_url": "https:\/\/api-r3.tagalys.com",
+    "tagalys_client_code": "AFC2AD73646AC149",
+    "tagalys_api_key": "e2cada62c7a0c4ea502b3c5079aa8dbd",
+    "tagalys_storefront_access_token": "ed8f63582ed907bdbb3c37b2c2593a7e",
+    "tagalys_store_id": "76147425592",
+    "tagalys_cross_selling_widget_id": "e91b7f971f0d82d8f035",
+    "enable_tagalys_cross_selling_widget": true,
+    "tagalys_similar_products_widget_id": "1e6ba142fd753a54bc40",
+    "tagalys_no_results_widget": "cd96c4dd61aa01fffdbf",
+    "enable_marker_io": false,
+    "marker_io_destination_id": "65c95623564a03b538cf6998",
+    "brauz_script_url": "https:\/\/d3aq2u4yw77ivo.cloudfront.net\/find-in-store\/shopify\/swimweargalore\/find-in-store.shopify.swimweargalore.prod.js",
+    "storefront_api_key": "a126a1e7c0e3a999c970f1475cdc17e6",
+    "content_for_index": [
+      
+    ],
+    "blocks": {
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
+          
+        }
+      },
+      "7919968004221747976": {
+        "type": "shopify:\/\/apps\/status-customer-accounts\/blocks\/app-embed\/00efb73e-3a22-41bb-be0f-8609abc31574",
+        "disabled": false,
+        "settings": {
+          
+        }
+      },
+      "4705145147225299685": {
+        "type": "shopify:\/\/apps\/tolstoy-shoppable-video-ugc\/blocks\/widget-block\/06fa8282-42ff-403e-b67c-1936776aed11",
+        "disabled": false,
+        "settings": {
+          
+        }
+      },
+      "733389323033596483": {
+        "type": "shopify:\/\/apps\/okendo\/blocks\/theme-settings\/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "disabled": false,
+        "settings": {
+          "show_preview_data": true
+        }
+      }
+    }
+  }
+}
