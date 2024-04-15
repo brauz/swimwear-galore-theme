@@ -1233,10 +1233,37 @@
     "name": "Brauz",
     "settings": [
       {
+        "type": "text",
+        "id": "brauz_identifier",
+        "label": "Brauz identifier",
+        "info": "Required for Brauz integration. Specific to each store."
+      },
+      {
         "type": "url",
         "id": "brauz_script_url",
         "label": "Brauz script url",
         "info": "Required for Brauz integration. Specific to each store."
+      },
+      {
+        "type": "url",
+        "id": "brauz_book_a_stylist_script_url",
+        "label": "Brauz book a stylist script url",
+        "info": "Required for Brauz integration. Specific to each store."
+      },
+      {
+        "type": "text",
+        "id": "brauz_fastskin_form_id",
+        "label": "Brauz Fastskin form ID"
+      },
+      {
+        "type": "text",
+        "id": "brauz_malvern_shopify_location_id",
+        "label": "Malvern Shopify location id"
+      },
+      {
+        "type": "text",
+        "id": "brauz_malvern_agent_id",
+        "label": "Malvern agent id"
       }
     ]
   },
