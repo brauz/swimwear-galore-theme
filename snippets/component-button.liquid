@@ -11,6 +11,7 @@
     attr: pass in data attributes e.g. data-video="play"
     modifiers: (optional) space separated list of BEM modifiers without block name eg. "title-below no-image"
     button_has_icon: (bool) adds arrow icon to button
+    button_id: text
 {%- endcomment -%}
 
 {% liquid
@@ -51,6 +52,9 @@
   </span>
 {% else %}
   <button
+    {% if button_id %}
+      id="{{ button_id }}"
+    {% endif %}
     class="{{ classes }}"
     {% if attr %}
       {{- attr -}}
