@@ -89,6 +89,7 @@
         "button_label_1": "Book now",
         "button_link_1": "shopify:\/\/blogs\/news\/the-best-seafolly-swimwear-for-an-european-summer-11",
         "button_style_1": "",
+        "button_id_1": "book-appointment-button",
         "button_label_2": "",
         "button_link_2": "",
         "button_style_2": "",
@@ -118,6 +119,7 @@
             "button_label_1": "Book Now",
             "button_link_1": "shopify:\/\/pages\/book-a-stylist",
             "button_style_1": "",
+            "button_id_1": "book-in-store-appointment-button",
             "button_label_2": "View Store Locations",
             "button_link_2": "shopify:\/\/pages\/afterpay-info",
             "button_style_2": "secondary"
@@ -132,6 +134,7 @@
             "button_label_1": "Book Now",
             "button_link_1": "shopify:\/\/pages\/book-a-stylist",
             "button_style_1": "",
+            "button_id_1": "book-virtual-appointment-button",
             "button_label_2": "",
             "button_link_2": "",
             "button_style_2": ""
@@ -260,6 +263,11 @@
         "bottom_margin_desktop": 0,
         "bottom_margin_mobile": 0
       }
+    },
+    "brauz-book-a-stylist": {
+      "type": "brauz-book-a-stylist",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -270,6 +278,7 @@
     "info_tiles_db7mKf",
     "image_with_text_88VbEC",
     "image_with_text_nfca3Y",
-    "image_with_text_7NBntV"
+    "image_with_text_7NBntV",
+    "brauz-book-a-stylist"
   ]
 }
