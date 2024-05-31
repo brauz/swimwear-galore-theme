@@ -1,0 +1,431 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "include_breadcrumbs": true,
+        "include_gradient": true,
+        "gradient_color": "accent-one",
+        "full_width": false,
+        "bottom_margin_desktop": 64,
+        "bottom_margin_mobile": 64
+      }
+    },
+    "hero_slider_GweT3P": {
+      "type": "hero-slider",
+      "blocks": {
+        "image_RbYbG3": {
+          "type": "image",
+          "settings": {
+            "background_image": "shopify:\/\/shop_images\/comp-swimming-mobile.webp",
+            "background_image_desktop": "shopify:\/\/shop_images\/comp-swimming.webp",
+            "add_top_mobile_padding": false,
+            "link_type": "section",
+            "selected_product": "",
+            "gradient_overlay": false,
+            "text_color": "#ffffff",
+            "text_color_desktop": "#ffffff",
+            "pre_title": "",
+            "title": "Competitive Swimming",
+            "title_size": "hero-heading-2",
+            "content": "",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_1": "",
+            "content_position": "justify-center align-end",
+            "content_position_desktop": "desktop-justify-start desktop-align-end",
+            "text_align": "text-center",
+            "text_align_desktop": "text-center--min-md"
+          }
+        }
+      },
+      "block_order": [
+        "image_RbYbG3"
+      ],
+      "settings": {
+        "slider_height_type": "natural",
+        "eager_load_first_slide": true,
+        "autoplay": false,
+        "infinite": false,
+        "include_pager_dots": true,
+        "button_control_color": "#ffffff",
+        "show_graphic": true,
+        "graphic": "8",
+        "graphic_color": "accent-two",
+        "bottom_margin_desktop": 0,
+        "bottom_margin_mobile": 0
+      }
+    },
+    "rich_text_HjwgPU": {
+      "type": "rich-text",
+      "settings": {
+        "pre_title": "",
+        "title": "<p>Welcome to the ultimate destination for competitive swimwear!<\/p>",
+        "title_size": "h4",
+        "post_title": "",
+        "content": "<p>Dive into our collection and discover a range of high-performance swimsuits designed for swimmers. Whether you're training for your next competition or looking to improve your lap times, our selection has you covered. With top brands from <a href=\"\/collections\/speedo\" title=\"Speedo\">Speedo<\/a>, <a href=\"\/collections\/funkita\" title=\"Funkita\">Funkita<\/a>, <a href=\"\/collections\/funky-trunks\" title=\"Funky Trunks\">Funky Trunks,<\/a> <a href=\"\/collections\/zoggs\" title=\"Zoggs\">Zoggs<\/a> & <a href=\"\/collections\/amanzi\" title=\"Amanzi\">Amanzi<\/a> known for their quality and durability, you can trust that our competitive swimwear will help you reach your full potential in the pool.<\/p>",
+        "align_text": "center",
+        "show_gradient": false,
+        "background_color": "",
+        "text_color": "",
+        "pre_title_color": "",
+        "gradient_color": "#f88377",
+        "button_label_1": "",
+        "button_link_1": "",
+        "button_style_1": "",
+        "button_id_1": "",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "",
+        "button_label_3": "",
+        "button_link_3": "shopify:\/\/blogs\/news",
+        "show_with_swimsuit_galore": false,
+        "show_graphic": false,
+        "graphic": "1",
+        "graphic_color": "accent-two",
+        "top_padding_desktop": 128,
+        "bottom_padding_desktop": 56,
+        "top_padding_mobile": 64,
+        "bottom_padding_mobile": 0,
+        "bottom_margin_desktop": 0,
+        "bottom_margin_mobile": 64
+      }
+    },
+    "featured_collections_VaWDk3": {
+      "type": "featured-collections",
+      "blocks": {
+        "tab_group_gTRP8y": {
+          "type": "tab_group",
+          "settings": {
+            "title": "Training",
+            "image_one": "shopify:\/\/shop_images\/funkita-tile.jpg",
+            "collection_one": "womens-chlorine-resistant-one-pieces",
+            "button_label_one": "Women's One Pieces",
+            "image_two": "shopify:\/\/shop_images\/SP00374116837.979-Speedo-Mens-Eco-Endurance_-Max-Compression-Jammer4.jpg",
+            "collection_two": "mens-jammers",
+            "button_label_two": "Men's Jammers",
+            "image_three": "shopify:\/\/shop_images\/mens-trunks2.jpg",
+            "collection_three": "mens-swim-trunks",
+            "button_label_three": "Men's Trunks",
+            "image_four": "shopify:\/\/shop_images\/FNK24002.664-Funkita-rock-star-crop-set1.jpg",
+            "collection_four": "womens-chlorine-resistant-bikinis",
+            "button_label_four": "Women's Bikinis",
+            "image_five": "shopify:\/\/shop_images\/SP13458G683.925-Speedo-Girls-Medley-Logo-Medalist-One-Piece3.jpg",
+            "collection_five": "girls-chlorine-resistant-swimwear",
+            "button_label_five": "Girls Swimwear",
+            "image_six": "shopify:\/\/shop_images\/ZOG463479BK.001-boys-etch-mid-jammer-black-3.jpg",
+            "collection_six": "boys-chlorine-resistant-swimwear",
+            "button_label_six": "Boys Swimwear",
+            "collection_seven": "",
+            "button_label_seven": "",
+            "collection_eight": "",
+            "button_label_eight": ""
+          }
+        },
+        "tab_group_VJPpaR": {
+          "type": "tab_group",
+          "settings": {
+            "title": "Racing",
+            "image_one": "shopify:\/\/shop_images\/womens-fastskin2.jpg",
+            "collection_one": "womens-speedo-fastskin",
+            "button_label_one": "Shop Womens",
+            "image_two": "shopify:\/\/shop_images\/mens-fastskin.jpg",
+            "collection_two": "mens-speedo-fastskin",
+            "button_label_two": "Shop Mens",
+            "image_three": "shopify:\/\/shop_images\/girls-fastskin.jpg",
+            "collection_three": "girls-speedo-fastskin",
+            "button_label_three": "Shop Girls",
+            "image_four": "shopify:\/\/shop_images\/boys-fastskin.jpg",
+            "collection_four": "boys-speedo-fastskin",
+            "button_label_four": "Shop Boys",
+            "collection_five": "",
+            "button_label_five": "",
+            "collection_six": "",
+            "button_label_six": "",
+            "collection_seven": "",
+            "button_label_seven": "",
+            "collection_eight": "",
+            "button_label_eight": ""
+          }
+        },
+        "tab_group_zAdqp3": {
+          "type": "tab_group",
+          "settings": {
+            "title": "Essentials",
+            "image_one": "shopify:\/\/shop_images\/deck-coats.jpg",
+            "collection_one": "towel-robes-ponchos",
+            "button_label_one": "Shop Deck Coats",
+            "image_two": "shopify:\/\/shop_images\/swim-bags.jpg",
+            "collection_two": "sport-bags",
+            "button_label_two": "Shop Sport Bags",
+            "image_three": "shopify:\/\/shop_images\/sport-towels.jpg",
+            "collection_three": "sports-towels",
+            "button_label_three": "Shop Sport Towels",
+            "image_four": "shopify:\/\/shop_images\/goggles.jpg",
+            "collection_four": "goggles",
+            "button_label_four": "Shop Goggles",
+            "image_five": "shopify:\/\/shop_images\/swim-caps.jpg",
+            "collection_five": "swim-caps",
+            "button_label_five": "Shop Swim Caps",
+            "collection_six": "",
+            "button_label_six": "",
+            "collection_seven": "",
+            "button_label_seven": "",
+            "collection_eight": "",
+            "button_label_eight": ""
+          }
+        },
+        "tab_group_pK6pjz": {
+          "type": "tab_group",
+          "settings": {
+            "title": "Brands",
+            "image_one": "shopify:\/\/shop_images\/speedo-tile.jpg",
+            "collection_one": "speedo",
+            "button_label_one": "Shop Speedo",
+            "image_two": "shopify:\/\/shop_images\/funkita_a2a0761a-b33b-451f-9f37-f0dcab89a48a.jpg",
+            "collection_two": "funkita",
+            "button_label_two": "Shop Funkita",
+            "image_three": "shopify:\/\/shop_images\/funky-trunks.jpg",
+            "collection_three": "funky-trunks",
+            "button_label_three": "Shop Funky Trunks",
+            "image_four": "shopify:\/\/shop_images\/zoggs_4d2ea7b3-181f-4319-bb12-dcf05352110d.jpg",
+            "collection_four": "zoggs",
+            "button_label_four": "Shop Zoggs",
+            "image_five": "shopify:\/\/shop_images\/amaam37303w.018-amanzi-aquatica-kneelength-one-piece2.jpg",
+            "collection_five": "amanzi",
+            "button_label_five": "Shop Amanzi",
+            "collection_six": "",
+            "button_label_six": "",
+            "collection_seven": "",
+            "button_label_seven": "",
+            "collection_eight": "",
+            "button_label_eight": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_group_gTRP8y",
+        "tab_group_VJPpaR",
+        "tab_group_zAdqp3",
+        "tab_group_pK6pjz"
+      ],
+      "settings": {
+        "background_color": "",
+        "text_color": "",
+        "title": "Swim your best time yet",
+        "enable_graphic": true,
+        "bottom_margin_desktop": 0,
+        "bottom_margin_mobile": 0
+      }
+    },
+    "featured_products_jTRBmV": {
+      "type": "featured-products",
+      "blocks": {
+        "products_i4chN6": {
+          "type": "products",
+          "settings": {
+            "collection": "swim-fins",
+            "product_list": [
+
+            ],
+            "title": "Swim Fins"
+          }
+        },
+        "products_Fxkmt9": {
+          "type": "products",
+          "settings": {
+            "collection": "kickboards",
+            "product_list": [
+
+            ],
+            "title": "Kickboards"
+          }
+        },
+        "products_twQcUd": {
+          "type": "products",
+          "settings": {
+            "collection": "pull-buoys",
+            "product_list": [
+
+            ],
+            "title": "Pull Buoys"
+          }
+        },
+        "products_MicnGi": {
+          "type": "products",
+          "settings": {
+            "collection": "swim-accessories",
+            "product_list": [
+
+            ],
+            "title": "Swim Accessories"
+          }
+        }
+      },
+      "block_order": [
+        "products_i4chN6",
+        "products_Fxkmt9",
+        "products_twQcUd",
+        "products_MicnGi"
+      ],
+      "settings": {
+        "background_color": "",
+        "text_color": "",
+        "title": "Training Gear",
+        "post_title": "",
+        "max_products": 4,
+        "enable_gradient": false,
+        "gradient_color": "accent-two",
+        "bottom_margin_desktop": 120,
+        "bottom_margin_mobile": 0
+      }
+    },
+    "image_with_text_Ux9Ard": {
+      "type": "image-with-text",
+      "blocks": {
+        "button_cd9hzB": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Fastskin",
+            "button_link": "shopify:\/\/collections\/womens-speedo-fastskin",
+            "button_style": ""
+          }
+        },
+        "button_EhVWzc": {
+          "type": "button",
+          "settings": {
+            "button_label": "Book a Fitting",
+            "button_link": "#",
+            "button_style": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_cd9hzB",
+        "button_EhVWzc"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/speedo-fastskin2.jpg",
+        "layout": "left",
+        "pre_title": "",
+        "title": "<p>Speedo Fastskin<\/p>",
+        "post_title": "",
+        "content": "<p>Do you want to take your swimming to the next level? Speedo Fastskin are an elite range of swimwear styles that have been designed to feel like a second skin, while remaining durable and streamlined for maximum return in performance.<\/p>",
+        "text_alignment_desktop": "left",
+        "text_alignment_mobile": "left",
+        "text_color": "",
+        "background_type": "color",
+        "background_color": "",
+        "gradient_position": "top",
+        "gradient_color": "accent-one",
+        "show_graphic": false,
+        "graphic": "1",
+        "graphic_size": "medium",
+        "graphic_color": "accent-two",
+        "bottom_margin_desktop": 0,
+        "bottom_margin_mobile": 0
+      }
+    },
+    "dual_tile_JyGfML": {
+      "type": "dual-tile",
+      "blocks": {
+        "text_tile_pBnabj": {
+          "type": "text_tile",
+          "settings": {
+            "pre_title": "Exclusive Fit Experts",
+            "title": "Speedo Fastskin",
+            "post_title": "",
+            "content": "Do you want to take your swimming to the next level? Speedo Fastskin are an elite range of swimwear styles that have been designed to feel like a second skin, while remaining durable and streamlined for maximum return in performance. Get expertly fitted at our Malvern store today.",
+            "text_alignment_desktop": "center",
+            "text_alignment_mobile": "center",
+            "button_label": "Shop Fastskin",
+            "button_link": "shopify:\/\/collections\/speedo-fastskin",
+            "button_style": "",
+            "background_color": "",
+            "gradient_color": "accent-one",
+            "show_graphic": false,
+            "graphic": "7",
+            "graphic_color": "accent-one"
+          }
+        },
+        "image_hjNRyg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/speedo-fastskin2.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "text_tile_pBnabj",
+        "image_hjNRyg"
+      ],
+      "settings": {
+        "bottom_margin_desktop": 0,
+        "bottom_margin_mobile": 0
+      }
+    },
+    "featured_articles_awJwQW": {
+      "type": "featured-articles",
+      "blocks": {
+        "article_AqnCga": {
+          "type": "article",
+          "settings": {
+            "article": "the-swim-report\/what-to-look-for-when-buying-training-swimwear"
+          }
+        },
+        "article_b4Cn3B": {
+          "type": "article",
+          "settings": {
+            "article": "the-swim-report\/introducing-speedos-latest-swimsuit-innovation-the-built-in-swim-bra"
+          }
+        },
+        "article_A4NTF4": {
+          "type": "article",
+          "settings": {
+            "article": "the-swim-report\/what-are-the-best-swimming-goggles"
+          }
+        },
+        "article_8feHYm": {
+          "type": "article",
+          "settings": {
+            "article": "the-swim-report\/how-to-stay-warm-in-cold-water"
+          }
+        },
+        "article_RcXaTV": {
+          "type": "article",
+          "settings": {
+            "article": "the-swim-report\/pool-fitness-the-benefits-of-pool-workouts"
+          }
+        }
+      },
+      "block_order": [
+        "article_AqnCga",
+        "article_b4Cn3B",
+        "article_A4NTF4",
+        "article_8feHYm",
+        "article_RcXaTV"
+      ],
+      "settings": {
+        "title": "Guides & Expert Advice",
+        "display_latest_articles": false,
+        "blog": "the-swim-report",
+        "show_gradient": false,
+        "gradient_color": "accent-two",
+        "bottom_margin_desktop": 0,
+        "bottom_margin_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_slider_GweT3P",
+    "rich_text_HjwgPU",
+    "featured_collections_VaWDk3",
+    "featured_products_jTRBmV",
+    "image_with_text_Ux9Ard",
+    "dual_tile_JyGfML",
+    "featured_articles_awJwQW"
+  ]
+}
