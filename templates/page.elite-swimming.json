@@ -343,6 +343,10 @@
             "button_label": "Shop Fastskin",
             "button_link": "shopify:\/\/collections\/speedo-fastskin",
             "button_style": "",
+            "button_label_2": "Book a Fitting",
+            "button_link_2": "",
+            "button_id_2": "book-in-store-appointment-button",
+            "button_style_2": "",
             "background_color": "",
             "gradient_color": "accent-one",
             "show_graphic": false,
@@ -416,6 +420,13 @@
         "bottom_margin_desktop": 0,
         "bottom_margin_mobile": 0
       }
+    },
+    "brauz-book-a-stylist": {
+      "type": "brauz-book-a-stylist",
+      "settings": {
+        "selected_store_id": "95134974264",
+        "form_id": "B5-1686801666"
+      }
     }
   },
   "order": [
@@ -426,6 +437,7 @@
     "featured_products_jTRBmV",
     "image_with_text_Ux9Ard",
     "dual_tile_JyGfML",
-    "featured_articles_awJwQW"
+    "featured_articles_awJwQW",
+    "brauz-book-a-stylist"
   ]
 }
