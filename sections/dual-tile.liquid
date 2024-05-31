@@ -18,13 +18,19 @@
           assign title = block.settings.title
           assign post_title = block.settings.post_title
           assign content = block.settings.content
-          assign button_label = block.settings.button_label
-          assign button_link = block.settings.button_link
+          assign button_label_1 = block.settings.button_label
+          assign button_link_1 = block.settings.button_link
           assign button_style = block.settings.button_style
           assign graphic = block.settings.graphic
 
-          assign show_button = false
+          assign show_button_1 = false
           assign show_graphic = block.settings.show_graphic
+
+          assign show_button_2 = false
+          assign button_label_2 = block.settings.button_label_2
+          assign button_id_2 = block.settings.button_id_2
+          assign button_link_2 = block.settings.button_link_2
+          assign button_style_2 = block.settings.button_style_2
 
           assign text_align_mobile = block.settings.text_alignment_mobile
           assign text_align_desktop = block.settings.text_alignment_desktop
@@ -33,7 +39,11 @@
           assign graphic_color = block.settings.graphic_color
 
           if block.settings.button_label != blank and block.settings.button_link != blank
-            assign show_button = true
+            assign show_button_1 = true
+          endif
+
+          if block.settings.button_label_2 != blank
+            assign show_button_2 = true
           endif
         %}
 
@@ -56,11 +66,17 @@
                   title_size: 'h1',
                   post_title: post_title,
                   content: content,
-                  show_button_1: show_button,
+                  show_button_1: show_button_1,
                   button_has_icon_1: true,
-                  button_label_1: button_label,
-                  button_link_1: button_link,
-                  button_style_1: button_style
+                  button_label_1: button_label_1,
+                  button_link_1: button_link_1,
+                  button_style_1: button_style,
+                  show_button_2: show_button_2,
+                  button_has_icon_2: true,
+                  button_label_2: button_label_2,
+                  button_id_2: button_id_2,
+                  button_link_2: button_link_2,
+                  button_style_2: button_style_2
                 %}
               </div>
 
@@ -227,6 +243,42 @@
             "type": "select",
             "id": "button_style",
             "label": "Button style",
+            "default": "",
+            "options": [
+              {
+                "value": "",
+                "label": "Primary"
+              },
+              {
+                "value": "secondary",
+                "label": "Secondary"
+              },
+              {
+                "value": "text",
+                "label": "Text"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "button_label_2",
+            "label": "Button label 2",
+            "info": "Leave the label blank to hide the button."
+          },
+          {
+            "type": "url",
+            "id": "button_link_2",
+            "label": "Button link 2"
+          },
+          {
+            "type": "text",
+            "id": "button_id_2",
+            "label": "Button ID 2"
+          },
+          {
+            "type": "select",
+            "id": "button_style_2",
+            "label": "Button style 2",
             "default": "",
             "options": [
               {
