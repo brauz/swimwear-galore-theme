@@ -1,3 +1,17 @@
+{% liquid
+  assign selected_store_id = ""
+  assign form_id = ""
+
+  if section.settings.selected_store_id != blank
+    assign selected_store_id = section.settings.selected_store_id
+  endif
+
+  if section.settings.form_id != blank
+    assign form_id = section.settings.form_id
+  endif
+%}
+
+
 <script>
   const script = document.createElement("script");
   script.setAttribute("type", "text/javascript");
@@ -19,12 +33,17 @@
 
     if(book_in_store_appointment_button){
       book_in_store_appointment_button.addEventListener("click", function(e){
-        window.Brauz_open_book_an_in_store_agent_dialog();
+        e.preventDefault();
+        window.Brauz_open_book_an_in_store_agent_dialog({
+          selected_store_id: "{{ selected_store_id }}",
+          selected_child_form_id: "{{ form_id }}"
+        });
       })
     }
 
     if(book_virtual_button){
       book_virtual_button.addEventListener("click", function(e){
+        e.preventDefault();
         window.Brauz_open_book_a_virtual_agent_dialog();
       })
     }
@@ -34,6 +53,17 @@
 {% schema %}
   {
     "name": "Brauz Book A Stylist",
-    "settings": []
+    "settings": [
+      {
+        "type": "text",
+        "id": "selected_store_id",
+        "label": "Selected store ID"
+      },
+      {
+        "type": "text",
+        "id": "form_id",
+        "label": "Form ID"
+      }
+    ]
   }
 {% endschema %}
