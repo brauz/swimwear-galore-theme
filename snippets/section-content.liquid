@@ -86,6 +86,9 @@
 
       {%- if show_button_2 -%}
         <{{ cta_element }}
+          {% if button_id_2 %}
+            id="{{ button_id_2 }}"
+          {% endif %}
           class="btn {% if button_style_2 != blank %}btn--{{ button_style_2 }}{% endif %}"
           {% if cta_element == 'a' %}
             href="{{ button_link_2 }}"
