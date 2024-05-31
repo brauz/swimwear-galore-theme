@@ -1,0 +1,389 @@
+{% liquid
+  assign show_section = false
+  if section.blocks.size > 0
+    assign show_section = true
+  endif
+%}
+
+{% if show_section == true %}
+  <section
+    class="section section--dual-tile dual-tile"
+    data-section-id="{{ section.id }}"
+    data-section-type="dual-tile"
+  >
+    <div class="dual-tile__grid">
+      {%- for block in section.blocks -%}
+        {% liquid
+          assign pre_title = block.settings.pre_title
+          assign title = block.settings.title
+          assign post_title = block.settings.post_title
+          assign content = block.settings.content
+          assign button_label = block.settings.button_label
+          assign button_link = block.settings.button_link
+          assign button_style = block.settings.button_style
+          assign graphic = block.settings.graphic
+
+          assign show_button = false
+          assign show_graphic = block.settings.show_graphic
+
+          assign text_align_mobile = block.settings.text_alignment_mobile
+          assign text_align_desktop = block.settings.text_alignment_desktop
+          assign background_color = block.settings.background_color
+          assign gradient_color = block.settings.gradient_color
+          assign graphic_color = block.settings.graphic_color
+
+          if block.settings.button_label != blank and block.settings.button_link != blank
+            assign show_button = true
+          endif
+        %}
+
+        {%- capture block_styles -%}
+            {%- if background_color != blank -%}--background-color: {{ background_color }};{%- endif -%}
+            {%- if gradient_color -%}--gradient-color: var(--{{ gradient_color }});{%- endif -%}
+            {%- if graphic_color -%}--graphic-color: var(--{{ graphic_color }});{%- endif -%}
+            {%- if show_graphic == true -%}--justify-content: space-between;{%- else -%}--justify-content: center;{%- endif -%}
+            --text-align-desktop: {{ text_align_desktop }};
+            --text-align-mobile: {{ text_align_mobile }};
+        {%- endcapture -%}
+
+        {%- case block.type -%}
+          {%- when 'text_tile' -%}
+            <div class="dual-tile__text" style="{{ block_styles }}">
+              <div class="dual-tile__text-content">
+                {% render 'section-content',
+                  pre_title: pre_title,
+                  title: title,
+                  title_size: 'h1',
+                  post_title: post_title,
+                  content: content,
+                  show_button_1: show_button,
+                  button_has_icon_1: true,
+                  button_label_1: button_label,
+                  button_link_1: button_link,
+                  button_style_1: button_style
+                %}
+              </div>
+
+              {% liquid
+                if show_graphic == true
+                  case graphic
+                    when '1'
+                      render 'graphic-1'
+                    when '2'
+                      render 'graphic-2'
+                    when '3'
+                      render 'graphic-3'
+                    when '4'
+                      render 'graphic-4'
+                    when '5'
+                      render 'graphic-5'
+                    when '6'
+                      render 'graphic-6'
+                    when '7'
+                      render 'graphic-7'
+                    when '8'
+                      render 'graphic-8'
+                    when '9'
+                      render 'graphic-9'
+                  endcase
+                endif
+              %}
+            </div>
+          {%- else -%}
+            <div class="dual-tile__image">
+              {%- render 'component-image',
+                image: block.settings.image,
+                aspect_ratio: 'natural',
+                sizes: '(min-width: 48rem) 50vw, 100vw'
+              -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </section>
+{% endif %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-bottom: {{ section.settings.bottom_margin_mobile }}px;
+  }
+
+  @media only screen and (min-width: {{ settings.grid_medium }}px) {
+    #shopify-section-{{ section.id }} {
+      margin-bottom: {{ section.settings.bottom_margin_desktop }}px;
+    }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Dual Tile",
+    "max_blocks": 2,
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Spacing"
+      },
+      {
+        "type": "range",
+        "id": "bottom_margin_desktop",
+        "min": 0,
+        "max": 120,
+        "step": 8,
+        "unit": "px",
+        "label": "Bottom Margin - Desktop",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "bottom_margin_mobile",
+        "min": 0,
+        "max": 120,
+        "step": 8,
+        "unit": "px",
+        "label": "Bottom Margin - Mobile",
+        "default": 0
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Text tile",
+        "type": "text_tile",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Text"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "pre_title",
+            "label": "Pre title"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "title",
+            "label": "Title",
+            "default": "Image with text"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "post_title",
+            "label": "Post title"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "content",
+            "label": "Content"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment_desktop",
+            "label": "Desktop text alignment",
+            "default": "center",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "text_alignment_mobile",
+            "label": "Mobile text alignment",
+            "default": "center",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              }
+            ]
+          },
+          {
+            "type": "header",
+            "content": "Buttons"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "Button label",
+            "info": "Leave the label or link blank to hide the button."
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link",
+            "info": "Leave the label or link blank to hide the button."
+          },
+          {
+            "type": "select",
+            "id": "button_style",
+            "label": "Button style",
+            "default": "",
+            "options": [
+              {
+                "value": "",
+                "label": "Primary"
+              },
+              {
+                "value": "secondary",
+                "label": "Secondary"
+              },
+              {
+                "value": "text",
+                "label": "Text"
+              }
+            ]
+          },
+          {
+            "type": "header",
+            "content": "Background"
+          },
+
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background colour"
+          },
+          {
+            "type": "header",
+            "content": "Gradient"
+          },
+          {
+            "type": "select",
+            "id": "gradient_color",
+            "label": "Gradient Colour",
+            "options": [
+              {
+                "value": "accent-one",
+                "label": "Accent One"
+              },
+              {
+                "value": "accent-two",
+                "label": "Accent Two"
+              }
+            ],
+            "default": "accent-two"
+          },
+          {
+            "type": "header",
+            "content": "Graphic"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_graphic",
+            "label": "Show Graphic?",
+            "default": false
+          },
+          {
+            "type": "select",
+            "id": "graphic",
+            "label": "Graphic",
+            "options": [
+              {
+                "group": "graphic",
+                "value": "1",
+                "label": "1"
+              },
+              {
+                "group": "graphic",
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "group": "graphic",
+                "value": "3",
+                "label": "3"
+              },
+              {
+                "group": "graphic",
+                "value": "4",
+                "label": "4"
+              },
+              {
+                "group": "graphic",
+                "value": "5",
+                "label": "5"
+              },
+              {
+                "group": "graphic",
+                "value": "6",
+                "label": "6"
+              },
+              {
+                "group": "graphic",
+                "value": "7",
+                "label": "7"
+              },
+              {
+                "group": "graphic",
+                "value": "8",
+                "label": "8"
+              },
+              {
+                "group": "graphic",
+                "value": "9",
+                "label": "9"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "graphic_color",
+            "label": "Graphic Colour",
+            "options": [
+              {
+                "value": "accent-one",
+                "label": "Accent One"
+              },
+              {
+                "value": "accent-two",
+                "label": "Accent Two"
+              },
+              {
+                "value": "color-white",
+                "label": "White"
+              },
+              {
+                "value": "color-background-2",
+                "label": "Background 2"
+              },
+              {
+                "value": "color-background-3",
+                "label": "Background 3"
+              }
+            ],
+            "default": "accent-two"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Dual Tile"
+      }
+    ],
+    "enabled_on": {
+      "templates": ["*"]
+    }
+  }
+{% endschema %}
